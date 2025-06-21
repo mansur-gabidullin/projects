@@ -1,12 +1,13 @@
 {
     "$schema": "https://unpkg.com/knip@5/schema.json",
     "ignoreDependencies": [
+        "vitest",
         "@commitlint/cli",
         "@mansur-gabidullin/prettier-config",
         "@mansur-gabidullin/typescript-config",
         "cz-conventional-changelog"
     ],
-    "ignoreBinaries": ["prettier", "eslint", "tsc"],
+    "ignoreBinaries": ["prettier", "eslint", "tsc", "vitest"],
     "workspaces": {
         ".": {
             "entry": ["scripts/gen-commit/bin.mjs", "vitest.config.mjs", ".eslintrc.cjs"],
@@ -17,7 +18,7 @@
             "project": ["**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,json}!"]
         },
         "packages/{cms,lab,lib,ui}/*": {
-            "entry": ["src/{index,main}.{ts,tsx}", ".eslintrc.cjs"],
+            "entry": ["src/{index,main}.{ts,tsx}", "**/*.{test,test-d,spec}.ts", "vitest.config.mjs", ".eslintrc.cjs"],
             "project": ["**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,json}!"]
         },
         "apps/*": {
