@@ -45,9 +45,4 @@ pre-push:
 
         check-deps:
             description: "Проверка на неиспользуемые зависимости"
-            run: |
-                if [ "$CI" = "true" ]; then
-                  echo "Skipping depcheck in CI"
-                else
-                  npm run deps:check || echo 'Depcheck warning ignored'
-                fi
+            run: npm run deps:check

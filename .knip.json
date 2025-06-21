@@ -1,0 +1,28 @@
+{
+    "$schema": "https://unpkg.com/knip@5/schema.json",
+    "ignoreDependencies": [
+        "@commitlint/cli",
+        "@mansur-gabidullin/prettier-config",
+        "@mansur-gabidullin/typescript-config",
+        "cz-conventional-changelog"
+    ],
+    "ignoreBinaries": ["prettier", "vite", "eslint", "tsc"],
+    "workspaces": {
+        ".": {
+            "entry": ["scripts/gen-commit/bin.mjs", "vitest.config.mjs", ".eslintrc.cjs"],
+            "project": ["**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,json}!"]
+        },
+        "packages/config/*": {
+            "entry": ["*.{cts,mts,json}"],
+            "project": ["**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,json}!"]
+        },
+        "packages/{cms,lab,lib,ui}/*": {
+            "entry": ["src/{index,main}.{ts,tsx}", ".eslintrc.cjs", "vite.config.ts"],
+            "project": ["**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,json}!"]
+        },
+        "apps/*": {
+            "entry": ["src/{index,main}.{ts,tsx}", ".eslintrc.cjs", "vite.config.ts"],
+            "project": ["**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,json}!"]
+        }
+    }
+}

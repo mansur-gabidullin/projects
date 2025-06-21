@@ -5,6 +5,7 @@
     "description": "My Projects",
     "type": "module",
     "workspaces": [
+        "apps/*",
         "packages/cms/*",
         "packages/config/*",
         "packages/lib/*",
@@ -13,7 +14,7 @@
     ],
     "scripts": {
         "build": "turbo run build",
-        "deps:check": "depcheck --config .depcheckrc",
+        "deps:check": "knip",
         "dev": "turbo run dev",
         "format": "prettier . --write --cache --ignore-unknown",
         "format:check": "prettier . --check --cache --ignore-unknown",
@@ -36,9 +37,9 @@
         "clipboardy": "^4.0.0",
         "commander": "^14.0.0",
         "cz-conventional-changelog": "^3.3.0",
-        "depcheck": "^1.4.7",
         "dotenv-cli": "^8.0.0",
         "inquirer": "^12.6.3",
+        "knip": "5.61.2",
         "lefthook": "^1.11.14",
         "turbo": "^2.5.4"
     },

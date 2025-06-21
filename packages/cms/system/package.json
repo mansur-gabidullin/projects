@@ -6,11 +6,15 @@
     "scripts": {
         "build": "vite build",
         "dev": "vite",
-        "lint": "eslint ."
+        "lint": "eslint .",
+        "typecheck": "tsc"
     },
     "prettier": "@mansur-gabidullin/prettier-config",
     "devDependencies": {
         "@mansur-gabidullin/prettier-config": "*",
         "@mansur-gabidullin/typescript-config": "*"
+    },
+    "peerDependencies": {
+        "vite": "^6.3.5"
     }
 }
