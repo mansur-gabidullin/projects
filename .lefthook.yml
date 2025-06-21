@@ -49,5 +49,5 @@ pre-push:
                 if [ "$CI" = "true" ]; then
                   echo "Skipping depcheck in CI"
                 else
-                  npx depcheck --ignores="vitest" || echo 'Depcheck warning ignored'
+                  npm run deps:check || echo 'Depcheck warning ignored'
                 fi

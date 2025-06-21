@@ -1,0 +1,14 @@
+{
+  "ignores": [
+    "@commitlint/cli",
+    "@commitlint/config-conventional",
+    "@mansur-gabidullin/prettier-config",
+    "cz-conventional-changelog",
+    "@typescript-eslint/parser",
+    "@typescript-eslint/eslint-plugin",
+    "eslint-plugin-import",
+    "eslint-plugin-unused-imports",
+    "eslint-plugin-prettier",
+    "eslint-config-prettier"
+  ]
+}
