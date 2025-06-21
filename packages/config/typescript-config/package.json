@@ -3,6 +3,7 @@
     "version": "0.1.0",
     "description": "Shared TypeScript config presets for @mansur-gabidullin monorepo.",
     "license": "MIT",
+    "sideEffects": false,
     "type": "module",
     "exports": {
         "./base.json": "./base.json",

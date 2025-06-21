@@ -1,8 +1,9 @@
 {
-    "name": "my-projects",
+    "name": "mansur-gabidullin-projects",
     "version": "0.1.0",
     "private": true,
-    "description": "My Projects",
+    "description": "Mansur Gabidullin Projects",
+    "sideEffects": false,
     "type": "module",
     "workspaces": [
         "apps/*",
@@ -16,13 +17,14 @@
         "build": "turbo run build",
         "deps:check": "knip",
         "dev": "turbo run dev",
-        "format": "prettier . --write --cache --ignore-unknown",
-        "format:check": "prettier . --check --cache --ignore-unknown",
+        "format": "turbo run format -- --write --cache --ignore-unknown",
+        "format:check": "turbo run format -- --check --cache --ignore-unknown",
         "gen-commit": "node scripts/gen-commit/index.mjs --copy",
         "postinstall": "lefthook install",
         "lint": "turbo run lint",
         "lint:fix": "turbo run lint -- --fix",
         "publish": "dotenv -e .env changeset publish",
+        "test": "turbo run test",
         "typecheck": "turbo run typecheck",
         "version": "changeset && changeset version && npm i"
     },

@@ -8,12 +8,12 @@ module.exports = {
         "plugin:@typescript-eslint/recommended",
         "plugin:import/recommended",
         "plugin:import/typescript",
-        "plugin:prettier/recommended"
+        "plugin:prettier/recommended",
     ],
     env: {
         browser: true,
         node: true,
-        es2024: true
+        es2024: true,
     },
     rules: {
         "prettier/prettier": "error",
@@ -22,12 +22,12 @@ module.exports = {
             {
                 groups: [["builtin", "external"], "internal", ["parent", "sibling", "index"]],
                 alphabetize: { order: "asc", caseInsensitive: true },
-                "newlines-between": "always"
-            }
+                "newlines-between": "always",
+            },
         ],
         "unused-imports/no-unused-imports": "warn",
         "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }],
-        "@typescript-eslint/explicit-module-boundary-types": "off"
+        "@typescript-eslint/explicit-module-boundary-types": "off",
         // "import/no-unresolved": "off",
     },
     ignorePatterns: ["dist", "node_modules", "*.d.ts"],
@@ -36,8 +36,8 @@ module.exports = {
             files: ["*.d.ts"],
             rules: {
                 "import/no-unused-modules": "off",
-                "@typescript-eslint/no-empty-interface": "off"
-            }
-        }
-    ]
+                "@typescript-eslint/no-empty-interface": "off",
+            },
+        },
+    ],
 };

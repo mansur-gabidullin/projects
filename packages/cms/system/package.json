@@ -1,20 +1,29 @@
 {
-    "name": "@mansur-gabidullin/my-test-package",
+    "name": "@mansur-gabidullin/cms-system",
     "version": "0.1.0",
-    "private": true,
+    "sideEffects": false,
     "type": "module",
+    "exports": {
+        ".": {
+            "import": {
+                "types": "./dist/index.d.ts",
+                "default": "./dist/index.js"
+            }
+        }
+    },
     "scripts": {
         "build": "vite build",
         "dev": "vite",
+        "format": "prettier .",
         "lint": "eslint .",
+        "test": "vitest run",
         "typecheck": "tsc"
     },
     "prettier": "@mansur-gabidullin/prettier-config",
     "devDependencies": {
         "@mansur-gabidullin/prettier-config": "*",
-        "@mansur-gabidullin/typescript-config": "*"
-    },
-    "peerDependencies": {
+        "@mansur-gabidullin/typescript-config": "*",
+        "@mansur-gabidullin/vitest-config": "*",
         "vite": "^6.3.5"
     }
 }

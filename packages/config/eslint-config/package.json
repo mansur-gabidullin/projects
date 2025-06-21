@@ -13,6 +13,7 @@
     ],
     "license": "MIT",
     "author": "Mansur Gabidullin",
+    "sideEffects": false,
     "type": "commonjs",
     "exports": {
         ".": "./index.cjs",
@@ -20,6 +21,12 @@
         "./next": "./next.cjs"
     },
     "main": "index.cjs",
+    "files": [
+        "index.cjs",
+        "react.cjs",
+        "next.cjs",
+        "README.md"
+    ],
     "peerDependencies": {
         "@typescript-eslint/eslint-plugin": "^8.34.1",
         "@typescript-eslint/parser": "^8.34.1",

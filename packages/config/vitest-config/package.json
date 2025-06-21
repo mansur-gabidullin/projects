@@ -8,12 +8,18 @@
         "monorepo"
     ],
     "license": "MIT",
+    "sideEffects": false,
     "type": "module",
     "exports": {
         ".": "./index.mjs",
         "./pass-no-test": "./pass-no-test.mjs"
     },
     "main": "index.mjs",
+    "files": [
+        "index.mjs",
+        "pass-no-test.mjs",
+        "README.md"
+    ],
     "peerDependencies": {
         "jsdom": "^26.1.0",
         "typescript": "^5.0.0",
