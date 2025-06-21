@@ -1,0 +1,3 @@
+{
+    "extends": "@mansur-gabidullin/typescript-config/node.json"
+}

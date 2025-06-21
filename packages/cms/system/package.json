@@ -1,0 +1,16 @@
+{
+    "name": "@mansur-gabidullin/my-test-package",
+    "version": "0.1.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "vite build",
+        "dev": "vite",
+        "lint": "eslint ."
+    },
+    "prettier": "@mansur-gabidullin/prettier-config",
+    "devDependencies": {
+        "@mansur-gabidullin/prettier-config": "*",
+        "@mansur-gabidullin/typescript-config": "*"
+    }
+}

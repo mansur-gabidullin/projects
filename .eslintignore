@@ -1,0 +1,40 @@
+# Общие каталоги, которые не нужно lintить
+node_modules
+dist
+build
+coverage
+
+# IDE и системные файлы
+.vscode
+.idea
+.DS_Store
+
+# Output/кеш сборщиков
+.next
+.vercel
+.out
+storybook-static
+tsconfig.tsbuildinfo
+
+# Лог-файлы
+*.log
+
+# Конфигурации и окружение
+.env
+.env.*
+
+# CI / changelogs
+**/CHANGELOG.md
+
+# Локальные или промежуточные каталоги
+tmp
+temp
+.cache
+
+# Турборепо: игнорируем dist каждого пакета/приложения
+apps/**/dist
+packages/**/dist
+
+# Уведомления о хуках и git
+.husky
+.git

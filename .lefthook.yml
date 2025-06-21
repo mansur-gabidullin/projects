@@ -1,0 +1,53 @@
+commit-msg:
+    commands:
+        lint-msg:
+            description: "Проверка сообщения коммита через @commitlint/config-conventional"
+            run: npx --no -- commitlint --edit "$1"
+
+pre-commit:
+    parallel: true
+    commands:
+        format:
+            description: "Форматирование файлов с помощью Prettier"
+            glob: "*.{js,ts,jsx,tsx,json,css,scss,md,yml,yaml}"
+            run: npx prettier --write {staged_files} > /dev/null
+            stage_fixed: true
+
+        lint:
+            description: "Линтинг с ESLint с автофиксом"
+            glob: "*.{js,ts,jsx,tsx}"
+            run: |
+                npx eslint --fix {staged_files} --quiet
+                git add {staged_files}
+
+        types:
+            description: "Проверка типов с TypeScript"
+            run: npx tsc --noEmit --project tsconfig.json
+
+        test:
+            description: "Запуск тестов на изменённых файлах с помощью Vitest"
+            run: npx vitest run --changed
+
+pre-push:
+    parallel: false
+    commands:
+        test:
+            description: "Полный запуск тестов"
+            run: npx vitest run
+
+        typecheck:
+            description: "Полная проверка типов"
+            run: npx tsc --noEmit
+
+        audit:
+            description: "Проверка уязвимостей через npm audit"
+            run: npm audit --audit-level=moderate
+
+        check-deps:
+            description: "Проверка на неиспользуемые зависимости"
+            run: |
+                if [ "$CI" = "true" ]; then
+                  echo "Skipping depcheck in CI"
+                else
+                  npx depcheck --ignores="vitest" || echo 'Depcheck warning ignored'
+                fi

@@ -1,0 +1,48 @@
+# node
+node_modules
+dist
+build
+coverage
+*.log
+
+# environment
+.env
+.env.*.local
+
+# lockfiles
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+
+# Git hooks / tooling
+.git
+.gitlab
+.husky
+
+# IDE configs
+.vscode
+.idea
+
+# system files
+.DS_Store
+Thumbs.db
+
+# test snapshots
+__snapshots__/
+
+# storybook artifacts
+.storybook-out
+.out
+.next
+.vercel
+
+# public/media
+public
+static
+
+# monorepo tools
+**/CHANGELOG.md
+**/tsconfig.tsbuildinfo
+
+apps/**/dist
+packages/**/dist
