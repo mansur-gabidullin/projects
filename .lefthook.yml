@@ -21,8 +21,8 @@ pre-commit:
                 git add {staged_files}
 
         # Проверка типов с TypeScript
-        types:
-            run: npx tsc --noEmit --project tsconfig.json
+        typecheck:
+            run: npx turbo run typecheck --filter="...[HEAD]"
 
         # Запуск тестов на изменённых файлах с помощью Vitest
         test:
@@ -37,7 +37,7 @@ pre-push:
 
         # Полная проверка типов
         typecheck:
-            run: npx tsc --noEmit
+            run: npx turbo run typecheck --filter="...[origin/main]"
 
         # Проверка уязвимостей через npm audit
         audit:

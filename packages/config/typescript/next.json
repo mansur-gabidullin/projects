@@ -1,0 +1,10 @@
+{
+    "extends": "./react.json",
+    "compilerOptions": {
+        "allowJs": true,
+        "plugins": [{ "name": "next" }],
+        "jsxImportSource": "react",
+        "module": "esnext",
+        "target": "es5"
+    }
+}

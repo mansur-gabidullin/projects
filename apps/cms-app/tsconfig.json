@@ -1,4 +1,10 @@
 {
-    "extends": "@mansur-gabidullin/config-typescript/node.json",
-    "include": ["src", "vite.config.ts"]
+    "extends": "@mansur-gabidullin/config-typescript/next.json",
+    "compilerOptions": {
+        "paths": {
+            "@/*": ["./src/*"]
+        }
+    },
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+    "exclude": ["node_modules"]
 }
