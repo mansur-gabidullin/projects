@@ -1,6 +1,11 @@
-const projectPatterns = ["**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,json,css}"];
+const projectPatterns = ["**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,json}"];
 
-const entryCommon = ["src/{index,main}.{ts,tsx}", "**/*.{test,test-d,spec}.ts", "vitest.config.mjs", ".eslintrc.cjs"];
+const entryCommon = [
+    "src/{index,main}.{ts,tsx}",
+    "**/*.{test,test-d,spec}.{ts,tsx}",
+    "*.{ts,mjs,cjs}",
+    ".*.{ts,mjs,cjs}",
+];
 
 const ignoreCommonDeps = ["@mansur-gabidullin/config-prettier", "@mansur-gabidullin/config-typescript"];
 
@@ -8,27 +13,37 @@ const ignoreCommonBins = ["prettier", "tsc", "vitest"];
 
 export default {
     $schema: "https://unpkg.com/knip@5/schema.json",
+
     workspaces: {
         ".": {
-            ignoreDependencies: [...ignoreCommonDeps, "@commitlint/cli", "cz-conventional-changelog"],
-            entry: ["scripts/gen-commit/bin.mjs", "vitest.config.mjs", ".eslintrc.cjs"],
+            entry: [".*.{ts,mjs,cjs}", "scripts/**/*.mjs"],
             project: projectPatterns,
+            ignoreDependencies: [
+                ...ignoreCommonDeps,
+                "@mansur-gabidullin/config-vitest",
+                "@commitlint/cli",
+                "@commitlint/config-conventional",
+                "cz-conventional-changelog",
+            ],
         },
+
         "packages/config/*": {
             entry: ["*.{cts,mts,json}"],
             project: projectPatterns,
         },
+
         "packages/*/*": {
-            ignoreDependencies: [...ignoreCommonDeps, "vitest"],
-            ignoreBinaries: ["prettier", "eslint", "tsc", "vitest"],
             entry: entryCommon,
             project: projectPatterns,
+            ignoreDependencies: [...ignoreCommonDeps, "vitest"],
+            ignoreBinaries: [...ignoreCommonBins, "eslint"],
         },
+
         "apps/*": {
+            entry: entryCommon,
+            project: projectPatterns,
             ignoreDependencies: [...ignoreCommonDeps, "tailwindcss", "vitest"],
             ignoreBinaries: ignoreCommonBins,
-            entry: entryCommon,
-            project: projectPatterns,
         },
     },
 };

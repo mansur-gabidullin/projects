@@ -2,7 +2,7 @@ commit-msg:
     commands:
         # Проверка сообщения коммита через @commitlint/config-conventional
         lint-msg:
-            run: npx --no -- commitlint --edit "$1"
+            run: npx --no -- commitlint --config .commitlint.config.mjs --edit "$1"
 
 pre-commit:
     parallel: true

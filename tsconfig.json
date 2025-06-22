@@ -1,5 +1,0 @@
-{
-    "extends": "@mansur-gabidullin/config-typescript/types.json",
-    "include": ["packages/*/**/*", "apps/*/**/*"],
-    "exclude": ["node_modules", "dist", "build", "coverage"]
-}

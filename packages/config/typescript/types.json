@@ -1,9 +1,0 @@
-{
-    "extends": "./base.json",
-    "compilerOptions": {
-        "declaration": true,
-        "noEmit": true,
-        "composite": true,
-        "removeComments": true
-    }
-}

@@ -10,7 +10,6 @@
         "./node.json": "./node.json",
         "./react.json": "./react.json",
         "./next.json": "./next.json",
-        "./types.json": "./types.json",
         "./test.json": "./test.json"
     },
     "files": [
