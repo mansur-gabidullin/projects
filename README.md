@@ -14,12 +14,12 @@
 
 ### 📦 Конфигурации
 
-| Инструмент | Конфигурация                                                                  |
-| ---------- | ----------------------------------------------------------------------------- |
-| ESLint     | [`@mansur-gabidullin/eslint-config`](./packages/config/eslint-config)         |
-| Prettier   | [`@mansur-gabidullin/prettier-config`](./packages/config/prettier-config)     |
-| Typescript | [`@mansur-gabidullin/typescript-config`](./packages/config/typescript-config) |
-| Vitest     | [`@mansur-gabidullin/vitest-config`](./packages/config/vitest-config)         |
+| Инструмент | Конфигурация                                                         |
+| ---------- | -------------------------------------------------------------------- |
+| ESLint     | [`@mansur-gabidullin/config-eslint`](packages/config/eslint)         |
+| Prettier   | [`@mansur-gabidullin/config-prettier`](packages/config/prettier)     |
+| Typescript | [`@mansur-gabidullin/config-typescript`](packages/config/typescript) |
+| Vitest     | [`@mansur-gabidullin/config-vitest`](packages/config/vitest)         |
 
 ---
 

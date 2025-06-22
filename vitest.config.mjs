@@ -1,1 +1,1 @@
-export { default } from "@mansur-gabidullin/vitest-config/pass-no-test";
+export { default } from "@mansur-gabidullin/config-vitest/pass-no-test";

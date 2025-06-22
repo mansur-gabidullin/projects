@@ -1,0 +1,25 @@
+{
+    "name": "@mansur-gabidullin/config-typescript",
+    "version": "0.1.0",
+    "description": "Shared TypeScript config presets for @mansur-gabidullin monorepo.",
+    "license": "MIT",
+    "sideEffects": false,
+    "type": "module",
+    "exports": {
+        "./base.json": "./base.json",
+        "./node.json": "./node.json",
+        "./react.json": "./react.json",
+        "./types.json": "./types.json",
+        "./test.json": "./test.json"
+    },
+    "files": [
+        "*.json",
+        "README.md"
+    ],
+    "peerDependencies": {
+        "typescript": "^5.0.0"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

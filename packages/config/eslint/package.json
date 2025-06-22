@@ -1,0 +1,44 @@
+{
+    "name": "@mansur-gabidullin/config-eslint",
+    "version": "0.1.0",
+    "description": "Shared ESLint config for Mansur's projects",
+    "keywords": [
+        "eslint",
+        "eslint-config",
+        "typescript",
+        "react",
+        "nextjs",
+        "prettier",
+        "monorepo"
+    ],
+    "license": "MIT",
+    "author": "Mansur Gabidullin",
+    "sideEffects": false,
+    "type": "commonjs",
+    "exports": {
+        ".": "./index.cjs",
+        "./react": "./react.cjs",
+        "./next": "./next.cjs"
+    },
+    "main": "index.cjs",
+    "files": [
+        "index.cjs",
+        "react.cjs",
+        "next.cjs",
+        "README.md"
+    ],
+    "peerDependencies": {
+        "@typescript-eslint/eslint-plugin": "^8.34.1",
+        "@typescript-eslint/parser": "^8.34.1",
+        "eslint": "^8.57.1",
+        "eslint-config-next": "^15.3.4",
+        "eslint-config-prettier": "^10.1.5",
+        "eslint-plugin-import": "^2.32.0",
+        "eslint-plugin-jsx-a11y": "^6.10.2",
+        "eslint-plugin-prettier": "^5.5.0",
+        "eslint-plugin-react": "^7.37.5",
+        "eslint-plugin-react-hooks": "^5.2.0",
+        "eslint-plugin-unused-imports": "^4.1.4",
+        "prettier": "^3.5.3"
+    }
+}

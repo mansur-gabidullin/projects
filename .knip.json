@@ -3,8 +3,8 @@
     "ignoreDependencies": [
         "vitest",
         "@commitlint/cli",
-        "@mansur-gabidullin/prettier-config",
-        "@mansur-gabidullin/typescript-config",
+        "@mansur-gabidullin/config-prettier",
+        "@mansur-gabidullin/config-typescript",
         "cz-conventional-changelog"
     ],
     "ignoreBinaries": ["prettier", "eslint", "tsc", "vitest"],
@@ -17,12 +17,12 @@
             "entry": ["*.{cts,mts,json}"],
             "project": ["**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,json}!"]
         },
-        "packages/{cms,lab,lib,ui}/*": {
+        "packages/*/*": {
             "entry": ["src/{index,main}.{ts,tsx}", "**/*.{test,test-d,spec}.ts", "vitest.config.mjs", ".eslintrc.cjs"],
             "project": ["**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,json}!"]
         },
         "apps/*": {
-            "entry": ["src/{index,main}.{ts,tsx}", ".eslintrc.cjs"],
+            "entry": ["src/{index,main}.{ts,tsx}", "**/*.{test,test-d,spec}.ts", "vitest.config.mjs", ".eslintrc.cjs"],
             "project": ["**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,json}!"]
         }
     }

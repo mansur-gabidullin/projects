@@ -1,5 +1,5 @@
 {
-    "name": "@mansur-gabidullin/cms-system",
+    "name": "@mansur-gabidullin/cms-domain",
     "version": "0.1.0",
     "sideEffects": false,
     "type": "module",

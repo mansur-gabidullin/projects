@@ -1,6 +1,7 @@
 {
-    "name": "@mansur-gabidullin/cms-system",
+    "name": "@mansur-gabidullin/lab-sample-package",
     "version": "0.1.0",
+    "private": true,
     "sideEffects": false,
     "type": "module",
     "exports": {

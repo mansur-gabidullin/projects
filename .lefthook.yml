@@ -1,48 +1,48 @@
 commit-msg:
     commands:
+        # Проверка сообщения коммита через @commitlint/config-conventional
         lint-msg:
-            description: "Проверка сообщения коммита через @commitlint/config-conventional"
             run: npx --no -- commitlint --edit "$1"
 
 pre-commit:
     parallel: true
     commands:
+        # Форматирование файлов с помощью Prettier
         format:
-            description: "Форматирование файлов с помощью Prettier"
             glob: "*.{js,ts,jsx,tsx,json,css,scss,md,yml,yaml}"
             run: npx prettier --write {staged_files} > /dev/null
             stage_fixed: true
 
+        # Линтинг с ESLint с автофиксом
         lint:
-            description: "Линтинг с ESLint с автофиксом"
             glob: "*.{js,ts,jsx,tsx}"
             run: |
                 npx eslint --fix {staged_files} --quiet
                 git add {staged_files}
 
+        # Проверка типов с TypeScript
         types:
-            description: "Проверка типов с TypeScript"
             run: npx tsc --noEmit --project tsconfig.json
 
+        # Запуск тестов на изменённых файлах с помощью Vitest
         test:
-            description: "Запуск тестов на изменённых файлах с помощью Vitest"
             run: npx vitest run --changed
 
 pre-push:
     parallel: false
     commands:
+        # Полный запуск тестов
         test:
-            description: "Полный запуск тестов"
             run: npx vitest run
 
+        # Полная проверка типов
         typecheck:
-            description: "Полная проверка типов"
             run: npx tsc --noEmit
 
+        # Проверка уязвимостей через npm audit
         audit:
-            description: "Проверка уязвимостей через npm audit"
             run: npm audit --audit-level=moderate
 
+        # Проверка на неиспользуемые зависимости
         check-deps:
-            description: "Проверка на неиспользуемые зависимости"
             run: npm run deps:check
