@@ -9,7 +9,16 @@ const entryCommon = [
 
 const ignoreCommonDeps = ["@mansur-gabidullin/config-prettier", "@mansur-gabidullin/config-typescript"];
 
-const ignoreCommonBins = ["prettier", "tsc", "vitest"];
+const ignoreCommonBins = ["prettier", "tsc", "vite", "vitest"];
+
+const ignoreRootDevToolingDeps = [
+    "@mansur-gabidullin/config-vite",
+    "@mansur-gabidullin/config-vitest",
+    "@mansur-gabidullin/config-eslint",
+    "@commitlint/cli",
+    "@commitlint/config-conventional",
+    "cz-conventional-changelog",
+];
 
 export default {
     $schema: "https://unpkg.com/knip@5/schema.json",
@@ -18,13 +27,7 @@ export default {
         ".": {
             entry: [".*.{ts,mjs,cjs}", "scripts/**/*.mjs"],
             project: projectPatterns,
-            ignoreDependencies: [
-                ...ignoreCommonDeps,
-                "@mansur-gabidullin/config-vitest",
-                "@commitlint/cli",
-                "@commitlint/config-conventional",
-                "cz-conventional-changelog",
-            ],
+            ignoreDependencies: [...ignoreCommonDeps, ...ignoreRootDevToolingDeps],
         },
 
         "packages/config/*": {
@@ -40,9 +43,9 @@ export default {
         },
 
         "apps/*": {
-            entry: entryCommon,
+            entry: ["src/app/*.{ts,tsx}", "**/*.{test,test-d,spec}.{ts,tsx}", "*.{ts,mjs,cjs}", ".*.{ts,mjs,cjs}"],
             project: projectPatterns,
-            ignoreDependencies: [...ignoreCommonDeps, "tailwindcss", "vitest"],
+            ignoreDependencies: [...ignoreCommonDeps, "tailwindcss"],
             ignoreBinaries: ignoreCommonBins,
         },
     },

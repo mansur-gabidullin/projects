@@ -24,7 +24,7 @@
     "devDependencies": {
         "@mansur-gabidullin/config-prettier": "*",
         "@mansur-gabidullin/config-typescript": "*",
-        "@mansur-gabidullin/config-vitest": "*",
-        "vite": "^6.3.5"
+        "@mansur-gabidullin/config-vite": "*",
+        "@mansur-gabidullin/config-vitest": "*"
     }
 }

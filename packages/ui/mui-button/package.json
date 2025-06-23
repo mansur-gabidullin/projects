@@ -1,7 +1,6 @@
 {
     "name": "@mansur-gabidullin/ui-mui-button",
     "version": "0.1.0",
-    "private": true,
     "sideEffects": false,
     "type": "module",
     "exports": {
@@ -24,7 +23,7 @@
     "devDependencies": {
         "@mansur-gabidullin/config-prettier": "*",
         "@mansur-gabidullin/config-typescript": "*",
-        "@mansur-gabidullin/config-vitest": "*",
-        "vite": "^6.3.5"
+        "@mansur-gabidullin/config-vite": "*",
+        "@mansur-gabidullin/config-vitest": "*"
     }
 }

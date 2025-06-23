@@ -1,0 +1,30 @@
+{
+    "name": "@mansur-gabidullin/lib-types",
+    "version": "0.1.0",
+    "sideEffects": false,
+    "type": "module",
+    "exports": {
+        ".": {
+            "import": {
+                "types": "./dist/index.d.ts",
+                "default": "./dist/index.js"
+            }
+        }
+    },
+    "scripts": {
+        "build": "vite build",
+        "dev": "vite",
+        "format": "prettier .",
+        "lint": "eslint .",
+        "test": "vitest run",
+        "typecheck": "tsc"
+    },
+    "prettier": "@mansur-gabidullin/config-prettier",
+    "devDependencies": {
+        "@mansur-gabidullin/config-prettier": "*",
+        "@mansur-gabidullin/config-typescript": "*",
+        "@mansur-gabidullin/config-vite": "*",
+        "@mansur-gabidullin/config-vitest": "*",
+        "type-testing": "0.2.0"
+    }
+}

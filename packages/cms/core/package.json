@@ -20,10 +20,15 @@
         "typecheck": "tsc"
     },
     "prettier": "@mansur-gabidullin/config-prettier",
+    "dependencies": {
+        "@mansur-gabidullin/lib-utils": "*",
+        "effect": "^3.16.8",
+        "uuid": "11.1.0"
+    },
     "devDependencies": {
         "@mansur-gabidullin/config-prettier": "*",
         "@mansur-gabidullin/config-typescript": "*",
-        "@mansur-gabidullin/config-vitest": "*",
-        "vite": "^6.3.5"
+        "@mansur-gabidullin/config-vite": "*",
+        "@mansur-gabidullin/config-vitest": "*"
     }
 }

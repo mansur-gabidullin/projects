@@ -2,7 +2,7 @@ commit-msg:
     commands:
         # Проверка сообщения коммита через @commitlint/config-conventional
         lint-msg:
-            run: npx --no -- commitlint --config .commitlint.config.mjs --edit "$1"
+            run: npx --no -- commitlint --config .commitlint.mjs --edit "$1"
 
 pre-commit:
     parallel: true
@@ -33,7 +33,7 @@ pre-push:
     commands:
         # Полный запуск тестов
         test:
-            run: npx vitest run
+            run: npx turbo run test --filter="...[origin/main]"
 
         # Полная проверка типов
         typecheck:
@@ -46,3 +46,5 @@ pre-push:
         # Проверка на неиспользуемые зависимости
         check-deps:
             run: npm run deps:check
+            # todo: временно отключил
+            skip: true

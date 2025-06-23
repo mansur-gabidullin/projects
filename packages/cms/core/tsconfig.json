@@ -1,4 +1,10 @@
 {
     "extends": "@mansur-gabidullin/config-typescript/node.json",
-    "include": ["src", "vite.config.ts"]
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@shared-kernel": ["./src/domain/shared-kernel"]
+        }
+    },
+    "include": ["src"]
 }

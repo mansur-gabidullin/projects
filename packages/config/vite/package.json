@@ -1,0 +1,27 @@
+{
+    "name": "@mansur-gabidullin/config-vite",
+    "version": "0.1.0",
+    "license": "MIT",
+    "sideEffects": false,
+    "type": "module",
+    "exports": {
+        ".": {
+            "import": "./index.mjs"
+        },
+        "./lib": {
+            "import": "./lib.mjs"
+        }
+    },
+    "main": "index.mjs",
+    "files": [
+        "index.mjs",
+        "lib.mjs",
+        "README.md"
+    ],
+    "peerDependencies": {
+        "typescript": "^5.4.0",
+        "vite": "^6.3.5",
+        "vite-plugin-dts": "^4.5.4",
+        "vite-plugin-externalize-deps": "^0.9.0"
+    }
+}

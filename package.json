@@ -30,6 +30,7 @@
         "@mansur-gabidullin/config-eslint": "*",
         "@mansur-gabidullin/config-prettier": "*",
         "@mansur-gabidullin/config-typescript": "*",
+        "@mansur-gabidullin/config-vite": "*",
         "@mansur-gabidullin/config-vitest": "*",
         "clipboardy": "^4.0.0",
         "commander": "^14.0.0",

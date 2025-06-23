@@ -1,2 +1,10 @@
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-module.exports = require("@mansur-gabidullin/config-eslint");
+module.exports = {
+    extends: [require.resolve("@mansur-gabidullin/config-eslint")],
+    settings: {
+        "import/resolver": {
+            typescript: {
+                project: "./tsconfig.json",
+            },
+        },
+    },
+};
