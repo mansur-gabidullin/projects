@@ -25,6 +25,7 @@
     ],
     "prettier": "./index.mjs",
     "peerDependencies": {
+        "@mansur-gabidullin/config-eslint": "*",
         "prettier": "^3.5.3",
         "prettier-plugin-packagejson": "^2.5.15"
     },

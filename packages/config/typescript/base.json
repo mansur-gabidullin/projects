@@ -4,7 +4,7 @@
         "tsBuildInfoFile": "./tsconfig.tsbuildinfo",
         "target": "ES2024",
         "module": "ESNext",
-        "lib": ["ES2024", "DOM"],
+        "lib": ["ES2024"],
         "moduleResolution": "bundler",
         "strict": true,
         "esModuleInterop": true,

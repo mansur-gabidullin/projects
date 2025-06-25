@@ -1,20 +1,22 @@
-import type { UserId } from "@shared-kernel";
+import type { UserId } from "@domain/shared-kernel";
 
 export const UserErrorTypeEnum = Object.freeze({
-    INVALID_STATUS: "InvalidStatus",
-    USER_NOT_FOUND: "UserNotFound",
+    USER_IS_NOT_GUEST: "userIsNotGuestError",
 } as const);
 
 export type UserErrorTypeEnum = typeof UserErrorTypeEnum;
-
 export type UserErrorType = UserErrorTypeEnum[keyof UserErrorTypeEnum];
 
-export type InvalidStatusError = {
-    type: UserErrorTypeEnum["INVALID_STATUS"];
+export type UserIsNotGuestError = {
+    type: UserErrorTypeEnum["USER_IS_NOT_GUEST"];
     userId: UserId;
-    status: string;
 };
 
-export type UserNotFoundError = { type: UserErrorTypeEnum["USER_NOT_FOUND"]; userId: UserId };
+export type UserError = UserIsNotGuestError;
 
-export type UserError = InvalidStatusError | UserNotFoundError;
+export function createUserIsNotGuestError(userId: UserId): UserIsNotGuestError {
+    return {
+        type: UserErrorTypeEnum.USER_IS_NOT_GUEST,
+        userId,
+    };
+}

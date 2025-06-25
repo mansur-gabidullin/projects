@@ -1,9 +1,11 @@
 {
-    "extends": "@mansur-gabidullin/config-typescript/node.json",
+    "extends": "@mansur-gabidullin/config-typescript/node",
     "compilerOptions": {
-        "baseUrl": ".",
         "paths": {
-            "@shared-kernel": ["./src/domain/shared-kernel"]
+            "@domain/*": ["./src/domain/*"],
+            "@application/*": ["./src/application/*"],
+            "@domain/shared-kernel": ["./src/domain/shared-kernel"],
+            "@domain/identity": ["./src/domain/identity"]
         }
     },
     "include": ["src"]

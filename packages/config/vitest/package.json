@@ -20,7 +20,10 @@
         "pass-no-test.mjs",
         "README.md"
     ],
+    "prettier": "@mansur-gabidullin/config-prettier",
     "peerDependencies": {
+        "@mansur-gabidullin/config-eslint": "*",
+        "@mansur-gabidullin/config-prettier": "*",
         "jsdom": "^26.1.0",
         "typescript": "^5.4.0",
         "vitest": "^3.2.4"

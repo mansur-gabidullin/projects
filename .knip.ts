@@ -7,7 +7,7 @@ const entryCommon = [
     ".*.{ts,mjs,cjs}",
 ];
 
-const ignoreCommonDeps = ["@mansur-gabidullin/config-prettier", "@mansur-gabidullin/config-typescript"];
+const ignoreCommonDeps = ["@mansur-gabidullin/config-typescript"];
 
 const ignoreCommonBins = ["prettier", "tsc", "vite", "vitest"];
 
@@ -15,6 +15,7 @@ const ignoreRootDevToolingDeps = [
     "@mansur-gabidullin/config-vite",
     "@mansur-gabidullin/config-vitest",
     "@mansur-gabidullin/config-eslint",
+    "@mansur-gabidullin/config-prettier",
     "@commitlint/cli",
     "@commitlint/config-conventional",
     "cz-conventional-changelog",
@@ -25,13 +26,13 @@ export default {
 
     workspaces: {
         ".": {
-            entry: [".*.{ts,mjs,cjs}", "scripts/**/*.mjs"],
+            entry: [".*.{ts,mjs,cjs,json}", "scripts/**/*.mjs"],
             project: projectPatterns,
             ignoreDependencies: [...ignoreCommonDeps, ...ignoreRootDevToolingDeps],
         },
 
         "packages/config/*": {
-            entry: ["*.{cts,mts,json}"],
+            entry: ["*.{cts,mts,json}", ".*.{ts,mjs,cjs,json}"],
             project: projectPatterns,
         },
 
@@ -43,9 +44,14 @@ export default {
         },
 
         "apps/*": {
-            entry: ["src/app/*.{ts,tsx}", "**/*.{test,test-d,spec}.{ts,tsx}", "*.{ts,mjs,cjs}", ".*.{ts,mjs,cjs}"],
+            entry: [
+                "src/app/*.{ts,tsx}",
+                "**/*.{test,test-d,spec}.{ts,tsx}",
+                "*.{ts,mjs,cjs,json}",
+                ".*.{ts,mjs,cjs,json}",
+            ],
             project: projectPatterns,
-            ignoreDependencies: [...ignoreCommonDeps, "tailwindcss"],
+            ignoreDependencies: [...ignoreCommonDeps, "tailwindcss", "@mansur-gabidullin/config-prettier"],
             ignoreBinaries: ignoreCommonBins,
         },
     },

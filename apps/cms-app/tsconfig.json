@@ -1,5 +1,5 @@
 {
-    "extends": "@mansur-gabidullin/config-typescript/next.json",
+    "extends": "@mansur-gabidullin/config-typescript/next",
     "compilerOptions": {
         "paths": {
             "@/*": ["./src/*"]

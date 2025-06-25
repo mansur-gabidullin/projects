@@ -1,6 +1,13 @@
 import type { Equal, Expect, NotEqual, TrueCases } from "type-testing";
+import { describe, it, expect } from "vitest";
 
-import type { BrandedNumber, BrandedString, InferCopy } from ".";
+import type { BrandedNumber, BrandedString, InferCopy, UnionLength } from ".";
+
+describe("greet", () => {
+    it("greets", () => {
+        expect("Hello, world!").toBe("Hello, world!");
+    });
+});
 
 type CheckValues<T extends Record<string, string>> = {
     [K in keyof T]: string extends T[K] ? never : T[K];
@@ -10,43 +17,32 @@ type CheckValues<T extends Record<string, string>> = {
 type ObjectWithLiterals<T extends CheckValues<InferCopy<T, Record<string, string>>>> = T;
 
 // @ts-expect-error test
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-type ObjectWithLiteralsTest = [
+type _ObjectWithLiteralsTest = [
     ObjectWithLiterals<{ value: "some literal" }>, // OK
     // @ts-expect-error test
     ObjectWithLiterals<{ value: string }>, // Error
 ];
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-declare const idBrand: unique symbol;
+declare const _idBrand: unique symbol;
 // @ts-expect-error test
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-type Id = BrandedString<typeof idBrand>;
+type _Id = BrandedString<typeof _idBrand>;
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-declare const radiusBrand: unique symbol;
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-declare const metersBrand: unique symbol;
-type Radius = BrandedNumber<typeof radiusBrand>;
-type Meters = BrandedNumber<typeof metersBrand>;
+declare const _radiusBrand: unique symbol;
+declare const _metersBrand: unique symbol;
+type Radius = BrandedNumber<typeof _radiusBrand>;
+type Meters = BrandedNumber<typeof _metersBrand>;
 
 const radius = 10 as Radius & Meters;
 
-// @ts-expect-error test
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const metersToKilometers = (meters: Meters) => {
+const metersToKilometers = (_meters: Meters) => {
     /*  */
 };
 
-// @ts-expect-error test
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const circleSquare = (radius: Radius) => {
+const circleSquare = (_radius: Radius) => {
     /*  */
 };
 
-// @ts-expect-error test
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const circleSquareInMeters = (radius: Radius & Meters) => {
+const circleSquareInMeters = (_radius: Radius & Meters) => {
     /*  */
 };
 
@@ -55,15 +51,13 @@ circleSquare(radius); // Ok
 circleSquareInMeters(radius); // Ok
 
 declare const idBrandSymbol: unique symbol;
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-declare const secondSymbol: unique symbol;
+declare const _secondSymbol: unique symbol;
 
 // @ts-expect-error test
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-type SymbolsTest = TrueCases<
+type _SymbolsTest = TrueCases<
     [
         // Типы не равны
-        NotEqual<typeof idBrandSymbol, typeof secondSymbol>,
+        NotEqual<typeof idBrandSymbol, typeof _secondSymbol>,
         // Типы равны
         Equal<typeof idBrandSymbol, typeof idBrandSymbol>,
     ]
@@ -72,8 +66,7 @@ type SymbolsTest = TrueCases<
 type Id2 = string & { [idBrandSymbol]: never };
 
 // @ts-expect-error test
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-type IdTest = Expect<NotEqual<Id2, string>>;
+type _IdTest = Expect<NotEqual<Id2, string>>;
 
 const process = (id: Id2) => id;
 
@@ -84,3 +77,11 @@ process("1234" as Id2);
 
 let id!: Id2;
 process(id);
+
+type MyUnion = "a" | "b" | "c";
+// @ts-expect-error test
+type _Count = UnionLength<MyUnion>; // Count = 3 ✅
+
+// Проверка:
+// @ts-expect-error test
+type _Test = Expect<Equal<UnionLength<MyUnion>, 3>>; // ✅ OK

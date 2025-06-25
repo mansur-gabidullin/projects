@@ -1,1 +1,1 @@
-export { default } from "@mansur-gabidullin/config-vite/lib";
+export { default } from "@mansur-gabidullin/config-vite/node";

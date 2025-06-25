@@ -18,16 +18,17 @@
     "exports": {
         ".": "./index.cjs",
         "./react": "./react.cjs",
-        "./next": "./next.cjs"
+        "./next": "./next.cjs",
+        "./node": "./node.cjs"
     },
     "main": "index.cjs",
     "files": [
-        "index.cjs",
-        "react.cjs",
-        "next.cjs",
+        "*.cjs",
         "README.md"
     ],
+    "prettier": "@mansur-gabidullin/config-prettier",
     "peerDependencies": {
+        "@mansur-gabidullin/config-prettier": "*",
         "@typescript-eslint/eslint-plugin": "^8.34.1",
         "@typescript-eslint/parser": "^8.34.1",
         "eslint": "^8.57.1",

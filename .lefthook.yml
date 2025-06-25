@@ -13,11 +13,16 @@ pre-commit:
             run: npx prettier --write {staged_files} > /dev/null
             stage_fixed: true
 
-        # Линтинг с ESLint с автофиксом
+        # Линтинг с ESLint и автофиксом
         lint:
             glob: "*.{js,ts,jsx,tsx}"
             run: |
-                npx eslint --fix {staged_files} --quiet
+                npx eslint \
+                  --fix \
+                  --rule "import/no-unresolved: off" \
+                  --rule "@next/next/no-html-link-for-pages: off" \
+                  --quiet \
+                  {staged_files}
                 git add {staged_files}
 
         # Проверка типов с TypeScript

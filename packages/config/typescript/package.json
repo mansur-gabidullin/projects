@@ -6,17 +6,21 @@
     "sideEffects": false,
     "type": "module",
     "exports": {
-        "./base.json": "./base.json",
-        "./node.json": "./node.json",
-        "./react.json": "./react.json",
-        "./next.json": "./next.json",
-        "./test.json": "./test.json"
+        ".": "./base.json",
+        "./base": "./base.json",
+        "./node": "./node.json",
+        "./react": "./react.json",
+        "./next": "./next.json",
+        "./test": "./test.json"
     },
     "files": [
         "*.json",
         "README.md"
     ],
+    "prettier": "@mansur-gabidullin/config-prettier",
     "peerDependencies": {
+        "@mansur-gabidullin/config-eslint": "*",
+        "@mansur-gabidullin/config-prettier": "*",
         "typescript": "^5.4.0"
     },
     "publishConfig": {

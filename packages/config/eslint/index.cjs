@@ -15,8 +15,16 @@ module.exports = {
         node: true,
         es2024: true,
     },
+    settings: {
+        "import/resolver": {
+            typescript: {
+                project: "./tsconfig.json",
+            },
+        },
+    },
     rules: {
         "prettier/prettier": "error",
+        "import/no-cycle": "warn",
         "import/order": [
             "warn",
             {
@@ -26,9 +34,12 @@ module.exports = {
             },
         ],
         "unused-imports/no-unused-imports": "warn",
+        "unused-imports/no-unused-vars": [
+            "warn",
+            { vars: "all", varsIgnorePattern: "^_", args: "after-used", argsIgnorePattern: "^_" },
+        ],
         "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_", varsIgnorePattern: "^_" }],
         "@typescript-eslint/explicit-module-boundary-types": "off",
-        // "import/no-unresolved": "off",
     },
     ignorePatterns: ["dist", "node_modules", "*.d.ts"],
     overrides: [

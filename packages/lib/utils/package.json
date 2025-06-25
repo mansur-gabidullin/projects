@@ -25,5 +25,8 @@
         "@mansur-gabidullin/config-typescript": "*",
         "@mansur-gabidullin/config-vite": "*",
         "@mansur-gabidullin/config-vitest": "*"
+    },
+    "peerDependencies": {
+        "@mansur-gabidullin/lib-types": "~0.1.0"
     }
 }

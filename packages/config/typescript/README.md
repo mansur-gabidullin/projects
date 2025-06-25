@@ -30,7 +30,7 @@ In your package `tsconfig.json`, extend one of the provided presets:
 
 ```json
 {
-    "extends": "@mansur-gabidullin/config-typescript/node.json"
+    "extends": "@mansur-gabidullin/config-typescript/node"
 }
 ```
 
@@ -38,15 +38,7 @@ In your package `tsconfig.json`, extend one of the provided presets:
 
 ```json
 {
-    "extends": "@mansur-gabidullin/config-typescript/react.json"
-}
-```
-
-### ✅ For type declarations (`*.d.ts` only):
-
-```json
-{
-    "extends": "@mansur-gabidullin/config-typescript/types.json"
+    "extends": "@mansur-gabidullin/config-typescript/react"
 }
 ```
 
@@ -54,7 +46,7 @@ In your package `tsconfig.json`, extend one of the provided presets:
 
 ```json
 {
-    "extends": "@mansur-gabidullin/config-typescript/test.json"
+    "extends": "@mansur-gabidullin/config-typescript/test"
 }
 ```
 
@@ -62,7 +54,7 @@ In your package `tsconfig.json`, extend one of the provided presets:
 
 ```json
 {
-    "extends": "@mansur-gabidullin/config-typescript/base.json"
+    "extends": "@mansur-gabidullin/config-typescript"
 }
 ```
 

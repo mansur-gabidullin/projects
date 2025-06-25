@@ -1,4 +1,4 @@
 {
-    "extends": "@mansur-gabidullin/config-typescript/node.json",
-    "include": ["src", "vite.config.mjs"]
+    "extends": "@mansur-gabidullin/config-typescript/node",
+    "include": ["src"]
 }
