@@ -14,4 +14,6 @@ export type ExternalIdentity = Readonly<{
     provider: ExternalIdentityProviderName;
     externalId: unknown;
     metadata?: Record<string, unknown>;
+    createdAt: Date;
+    updatedAt: Date;
 }>;

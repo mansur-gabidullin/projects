@@ -10,12 +10,14 @@ export function createUserId(): UserId {
 
 export function createUser<Type extends UserType>(type: Type): [Omit<User, "type"> & { type: Type }, UserCreatedEvent] {
     const id = createUserId();
+    const createdAt = new Date();
 
     return [
         Object.freeze({
             id,
             type,
-            createdAt: new Date(),
+            createdAt: createdAt,
+            updatedAt: createdAt,
         }),
         createUserCreatedEvent(id),
     ];

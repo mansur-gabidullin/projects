@@ -38,6 +38,7 @@ export type Account = Readonly<
         id: AccountId;
         userId: UserId;
         createdAt: Date;
+        updatedAt: Date;
     } & (
         | { type: AccountTypeEnum["ROOT"] }
         | ({
@@ -49,9 +50,7 @@ export type Account = Readonly<
                     type: AccountTypeEnum["DELIGATION"];
                     delegated_from_account_id: AccountId;
                 }
-              | {
-                    type: Exclude<AccountType, AccountTypeEnum["ROOT"] | AccountTypeEnum["DELIGATION"]>;
-                }
+              | { type: Exclude<AccountType, AccountTypeEnum["ROOT"] | AccountTypeEnum["DELIGATION"]> }
           ))
     )
 >;
@@ -71,6 +70,7 @@ export const changeAccountStatus = (
     return Result.ok([
         Object.freeze({
             ...account,
+            updatedAt: new Date(),
             status: newStatus,
         }),
         createAccountStatusChangedEvent(account, account.status),

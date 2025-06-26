@@ -14,4 +14,6 @@ export type Profile = Readonly<{
     locale?: string;
     timezone?: string;
     location?: string;
+    createdAt: Date;
+    updatedAt: Date;
 }>;

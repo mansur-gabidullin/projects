@@ -32,6 +32,7 @@ export type User = Readonly<{
     id: UserId;
     type: UserType;
     createdAt: Date;
+    updatedAt: Date;
 }>;
 
 export function makeGuestABasicUser(user: User): Result<[User, UserTypeChangedToBasicEvent], UserIsNotGuestError> {
@@ -42,6 +43,7 @@ export function makeGuestABasicUser(user: User): Result<[User, UserTypeChangedTo
     return Result.ok([
         Object.freeze({
             ...user,
+            updatedAt: new Date(),
             type: UserTypeEnum.BASIC,
         }),
         createUserTypeChangedToBasicEvent(user.id),

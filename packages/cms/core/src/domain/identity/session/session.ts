@@ -12,10 +12,11 @@ export type Session = Readonly<{
     userId: UserId;
     accountId: AccountId;
     createdAt: Date;
+    updatedAt: Date;
     lastSeenAt: Date;
     expiresAt: Date | null; // null = неограниченная
-    revokedAt?: Date; // если отозвана
-    revokedBy?: UserId; // кто отозвал
+    revokedAt: Date | null; // если отозвана
+    revokedBy: UserId | null; // кто отозвал
     device?: string;
     ip?: string;
     userAgent?: string;

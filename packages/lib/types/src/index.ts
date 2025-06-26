@@ -11,6 +11,8 @@ export type BrandedNumber<TBrand extends symbol> = Brand<number, TBrand>;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type DistributiveOmit<T, K extends keyof any> = T extends any ? Omit<T, K> : never;
 
+export type MakePartial<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type UnionToIntersection<U> = (U extends any ? (x: U) => any : never) extends (x: infer R) => any ? R : never;
 

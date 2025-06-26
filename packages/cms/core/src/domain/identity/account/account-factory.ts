@@ -1,58 +1,66 @@
+import type { DistributiveOmit } from "@mansur-gabidullin/lib-types";
+
 import { type AccountCreatedEvent, createAccountCreatedEvent } from "@domain/identity/account/account-event.ts";
 import { createId } from "@domain/shared-kernel";
 
 import { type Account, type AccountId, type AccountType, AccountTypeEnum } from "./account.ts";
 
-type CreateAccountParams<Type extends AccountType> = Omit<Extract<Account, { type: Type }>, "id" | "createdAt">;
+export type RootAccount = Extract<Account, { type: AccountTypeEnum["ROOT"] }>;
 
-type CommonAccountType = Exclude<AccountType, AccountTypeEnum["ROOT"] | AccountTypeEnum["DELIGATION"]>;
+export type DelegatedAccount = Extract<Account, { type: AccountTypeEnum["DELIGATION"] }>;
 
-type CommonCreateAccountParams = Omit<CreateAccountParams<CommonAccountType>, "type">;
+export type CommonAccountType = Exclude<AccountType, AccountTypeEnum["ROOT"] | AccountTypeEnum["DELIGATION"]>;
+
+export type CommonAccount = Extract<Account, { type: CommonAccountType }>;
+
+type CreateAccountParams<A extends Account> = DistributiveOmit<A, "id" | "createdAt" | "updatedAt">;
 
 function createCommonAccountPart(
-    data: CommonCreateAccountParams,
-): CommonCreateAccountParams & Pick<Account, "createdAt"> {
+    params: Omit<CreateAccountParams<CommonAccount>, "type">,
+): Omit<CreateAccountParams<CommonAccount>, "type"> & Pick<Account, "createdAt" | "updatedAt"> {
+    const createdAt = new Date();
+
     return {
-        userId: data.userId,
-        status: data.status,
-        scope: data.scope,
-        expiresAt: data.expiresAt,
-        createdAt: new Date(),
+        userId: params.userId,
+        status: params.status,
+        scope: params.scope,
+        expiresAt: params.expiresAt,
+        createdAt,
+        updatedAt: createdAt,
     };
 }
 
-function createRootAccount(
-    data: CreateAccountParams<AccountTypeEnum["ROOT"]>,
-): Extract<Account, { type: AccountTypeEnum["ROOT"] }> {
+function createRootAccount(params: CreateAccountParams<RootAccount>): RootAccount {
+    const createdAt = new Date();
+
     return Object.freeze({
         id: createId<AccountId>(),
         type: AccountTypeEnum.ROOT,
-        userId: data.userId,
-        createdAt: new Date(),
+        userId: params.userId,
+        createdAt,
+        updatedAt: createdAt,
     });
 }
 
-function createDelegatedAccount(
-    data: CreateAccountParams<AccountTypeEnum["DELIGATION"]>,
-): Extract<Account, { type: AccountTypeEnum["DELIGATION"] }> {
+function createDelegatedAccount(params: CreateAccountParams<DelegatedAccount>): DelegatedAccount {
     return Object.freeze({
-        ...createCommonAccountPart(data),
+        ...createCommonAccountPart(params),
         id: createId<AccountId>(),
         type: AccountTypeEnum.DELIGATION,
-        delegated_from_account_id: data.delegated_from_account_id,
+        delegated_from_account_id: params.delegated_from_account_id,
     });
 }
 
-function createCommonAccount(data: CreateAccountParams<CommonAccountType>) {
+function createCommonAccount(params: CreateAccountParams<CommonAccount>) {
     return Object.freeze({
-        ...createCommonAccountPart(data),
+        ...createCommonAccountPart(params),
         id: createId<AccountId>(),
-        type: data.type,
+        type: params.type,
     });
 }
 
 export function createAccount(
-    data: CreateAccountParams<AccountType>,
+    params: CreateAccountParams<Account>,
 ): [
     (
         | ReturnType<typeof createRootAccount>
@@ -63,12 +71,12 @@ export function createAccount(
 ] {
     let account;
 
-    if (data.type === AccountTypeEnum.ROOT) {
-        account = createRootAccount(data as CreateAccountParams<AccountTypeEnum["ROOT"]>);
-    } else if (data.type === AccountTypeEnum.DELIGATION) {
-        account = createDelegatedAccount(data as CreateAccountParams<AccountTypeEnum["DELIGATION"]>);
+    if (params.type === AccountTypeEnum.ROOT) {
+        account = createRootAccount(params);
+    } else if (params.type === AccountTypeEnum.DELIGATION) {
+        account = createDelegatedAccount(params);
     } else {
-        account = createCommonAccount(data as CreateAccountParams<CommonAccountType>);
+        account = createCommonAccount(params);
     }
 
     return [account, createAccountCreatedEvent(account.id)];
