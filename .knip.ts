@@ -43,7 +43,7 @@ export default {
             ignoreBinaries: [...ignoreCommonBins, "eslint"],
         },
 
-        "apps/*": {
+        "apps/*/*": {
             entry: [
                 "src/app/*.{ts,tsx}",
                 "**/*.{test,test-d,spec}.{ts,tsx}",

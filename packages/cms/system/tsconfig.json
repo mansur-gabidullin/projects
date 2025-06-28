@@ -1,4 +1,11 @@
 {
     "extends": "@mansur-gabidullin/config-typescript/node",
+    "compilerOptions": {
+        "paths": {
+            "@domain/*": ["./src/domain/*"],
+            "@application/*": ["./src/application/*"],
+            "@infrastructure/*": ["./src/infrastructure/*"]
+        }
+    },
     "include": ["src"]
 }

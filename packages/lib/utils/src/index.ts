@@ -1,2 +1,2 @@
-export * from "./result.ts";
-export { match } from "./match.ts";
+export * from "./result";
+export { match } from "./match";

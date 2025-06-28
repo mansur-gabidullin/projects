@@ -45,3 +45,8 @@ export type DiscriminantStringLiteralKey<U> = {
             : never
         : never;
 }[keyof U];
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type DropFirstArg<Fn> = Fn extends (arg: any, ...rest: infer RestArgs) => infer ReturnType
+    ? (...args: RestArgs) => ReturnType
+    : never;

@@ -6,11 +6,12 @@
     "sideEffects": false,
     "type": "module",
     "workspaces": [
-        "apps/*",
+        "apps/*/*",
         "packages/*/*"
     ],
     "scripts": {
         "build": "turbo run build",
+        "check": "npm run typecheck && npm run lint && npm run format && npm run test && npm run deps:check && npm audit",
         "deps:check": "knip -c .knip.ts",
         "dev": "turbo run dev",
         "format": "turbo run format -- --write --cache --ignore-unknown",

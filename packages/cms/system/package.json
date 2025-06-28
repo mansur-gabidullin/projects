@@ -4,10 +4,22 @@
     "sideEffects": false,
     "type": "module",
     "exports": {
-        ".": {
+        "./domain": {
             "import": {
-                "types": "./dist/index.d.ts",
-                "default": "./dist/index.js"
+                "types": "./dist/domain/index.d.ts",
+                "default": "./dist/domain/index.js"
+            }
+        },
+        "./application": {
+            "import": {
+                "types": "./dist/application/index.d.ts",
+                "default": "./dist/application/index.js"
+            }
+        },
+        "./infrastructure": {
+            "import": {
+                "types": "./dist/infrastructure/index.d.ts",
+                "default": "./dist/infrastructure/index.js"
             }
         }
     },
@@ -20,6 +32,11 @@
         "typecheck": "tsc"
     },
     "prettier": "@mansur-gabidullin/config-prettier",
+    "dependencies": {
+        "@mansur-gabidullin/lib-utils": "*",
+        "effect": "^3.16.8",
+        "uuid": "11.1.0"
+    },
     "devDependencies": {
         "@mansur-gabidullin/config-prettier": "*",
         "@mansur-gabidullin/config-typescript": "*",
