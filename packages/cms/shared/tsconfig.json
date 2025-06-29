@@ -1,4 +1,0 @@
-{
-    "extends": "@mansur-gabidullin/config-typescript/node",
-    "include": ["src"]
-}
