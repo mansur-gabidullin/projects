@@ -1,8 +1,9 @@
 import type { DistributiveOmit, DropFirstArg } from "@mansur-gabidullin/lib-types";
 
+import type { IdGenerator } from "@domain/shared-kernel";
+
 import { type Account, type AccountId, type AccountType, AccountTypeEnum } from "./account";
 import { type AccountCreatedEvent, createAccountCreatedEvent } from "./account.events";
-import type { IdGenerator } from "../../shared-kernel";
 
 export type RootAccount = Extract<Account, { type: AccountTypeEnum["ROOT"] }>;
 

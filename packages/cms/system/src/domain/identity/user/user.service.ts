@@ -1,10 +1,11 @@
 import type { DropFirstArg } from "@mansur-gabidullin/lib-types";
 import { Result } from "@mansur-gabidullin/lib-utils";
 
+import type { UserReference } from "@domain/shared-kernel";
+
 import { type Guest, type User, UserTypeEnum } from "./user";
 import { createUserIsNotGuestError, type UserIsNotGuestError } from "./user.errors";
 import { createUserTypeChangedToBasicEvent, type UserTypeChangedToBasicEvent } from "./user.events";
-import type { UserReference } from "../../shared-kernel";
 import type { Profile } from "../profile/profile";
 
 function checkIsUserGuest(user: User): user is Guest {

@@ -11,7 +11,7 @@
     ],
     "scripts": {
         "build": "turbo run build",
-        "check": "npm run typecheck && npm run lint && npm run format && npm run test && npm run deps:check && npm audit",
+        "check": "npm run typecheck && npm run lint && npm run format && npm run test && npm audit && npm run deps:check",
         "deps:check": "knip -c .knip.ts",
         "dev": "turbo run dev",
         "format": "turbo run format -- --write --cache --ignore-unknown",

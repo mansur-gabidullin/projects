@@ -1,5 +1,7 @@
 import type { DistributiveOmit, DropFirstArg } from "@mansur-gabidullin/lib-types";
 
+import type { IdGenerator } from "@domain/shared-kernel";
+
 import {
     isTypeWithoutValue,
     type UserIdentifier,
@@ -8,7 +10,6 @@ import {
     type UserIdentifierTypeWithoutValue,
 } from "./user-identifier";
 import { createUserIdentifierCreatedEvent, type UserIdentifierCreatedEvent } from "./user-identifier.events";
-import type { IdGenerator } from "../../shared-kernel";
 
 type CreateUserIdentifierParams = DistributiveOmit<UserIdentifier, "id" | "createdAt" | "updatedAt">;
 

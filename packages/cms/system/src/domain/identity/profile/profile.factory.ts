@@ -1,8 +1,9 @@
 import type { DropFirstArg } from "@mansur-gabidullin/lib-types";
 
+import type { IdGenerator } from "@domain/shared-kernel";
+
 import type { Profile, ProfileId } from "./profile";
 import { createProfileCreatedEvent, type ProfileCreatedEvent } from "./profile.events";
-import type { IdGenerator } from "../../shared-kernel";
 
 type CreateProfileParams = Omit<Profile, "id" | "createdAt" | "updatedAt">;
 

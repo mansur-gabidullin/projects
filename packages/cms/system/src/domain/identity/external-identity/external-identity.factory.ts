@@ -1,8 +1,9 @@
 import type { DropFirstArg } from "@mansur-gabidullin/lib-types";
 
+import type { IdGenerator } from "@domain/shared-kernel";
+
 import type { ExternalIdentity, ExternalIdentityId } from "./external-identity";
 import { createExternalIdentityCreatedEvent, type ExternalIdentityCreatedEvent } from "./external-identity.events";
-import type { IdGenerator } from "../../shared-kernel";
 
 type CreateExternalIdentityParams = Omit<ExternalIdentity, "id" | "createdAt" | "updatedAt">;
 
