@@ -1,5 +1,4 @@
-import type { AccountId } from "../account";
-import type { CommonAccount } from "../account.factory";
+import type { AccountId, CommonAccount } from "../account";
 import type { CreateAccountParams } from "./createAccount";
 import { createCommonAccountPart } from "./createCommonAccountPart";
 

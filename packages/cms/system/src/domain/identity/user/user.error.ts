@@ -7,9 +7,9 @@ export const UserErrorTypeEnum = Object.freeze({
 export type UserErrorTypeEnum = typeof UserErrorTypeEnum;
 export type UserErrorType = UserErrorTypeEnum[keyof UserErrorTypeEnum];
 
-export type UserIsNotGuestError = {
+export type UserIsNotGuestError = Readonly<{
     type: UserErrorTypeEnum["USER_IS_NOT_GUEST"];
     userId: UserId;
-};
+}>;
 
 export type UserError = UserIsNotGuestError;

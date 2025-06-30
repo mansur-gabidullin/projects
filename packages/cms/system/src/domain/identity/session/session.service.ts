@@ -4,12 +4,12 @@ import type { Session } from "./session";
 
 declare const toDo: (session: Session) => void;
 
-type SessionService = {
+type SessionService = Readonly<{
     toDo: DropFirstArg<typeof toDo>;
-};
+}>;
 
 export function SessionService(session: Session): SessionService {
-    return {
+    return Object.freeze({
         toDo: () => toDo(session),
-    };
+    });
 }

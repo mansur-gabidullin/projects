@@ -1,10 +1,12 @@
 import type { AccountId } from "../account";
 import { type AccountCreatedEvent, AccountEventTypeEnum } from "../account.event";
 
-export const createAccountCreatedEvent = (accountId: AccountId): AccountCreatedEvent => ({
-    type: AccountEventTypeEnum.CREATED,
-    payload: {
-        accountId,
-        occurredAt: new Date(),
-    },
-});
+export function createAccountCreatedEvent(accountId: AccountId): AccountCreatedEvent {
+    return Object.freeze({
+        type: AccountEventTypeEnum.CREATED,
+        payload: {
+            accountId,
+            occurredAt: new Date(),
+        },
+    });
+}

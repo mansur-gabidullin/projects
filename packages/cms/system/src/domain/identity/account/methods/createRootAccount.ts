@@ -1,5 +1,4 @@
-import { type AccountId, AccountTypeEnum } from "../account";
-import type { RootAccount } from "../account.factory";
+import { type AccountId, AccountTypeEnum, type RootAccount } from "../account";
 import type { CreateAccountParams } from "./createAccount";
 
 export function createRootAccount(id: AccountId, params: CreateAccountParams<RootAccount>): RootAccount {

@@ -1,5 +1,4 @@
-import { type AccountId, AccountTypeEnum } from "../account";
-import type { DelegatedAccount } from "../account.factory";
+import { type AccountId, AccountTypeEnum, type DelegatedAccount } from "../account";
 import type { CreateAccountParams } from "./createAccount";
 import { createCommonAccountPart } from "./createCommonAccountPart";
 

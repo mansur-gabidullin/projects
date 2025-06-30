@@ -64,5 +64,5 @@ export function createUserIdentifier(
         };
     }
 
-    return [userIdentifier, createUserIdentifierCreatedEvent(userIdentifier.id)];
+    return [Object.freeze(userIdentifier), createUserIdentifierCreatedEvent(userIdentifier.id)];
 }

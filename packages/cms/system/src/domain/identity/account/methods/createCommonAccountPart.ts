@@ -1,5 +1,4 @@
-import type { Account } from "../account";
-import type { CommonAccount } from "../account.factory";
+import type { Account, CommonAccount } from "../account";
 import type { CreateAccountParams } from "./createAccount";
 
 export function createCommonAccountPart(

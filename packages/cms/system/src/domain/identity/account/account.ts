@@ -46,3 +46,11 @@ export type Account = Readonly<
           ))
     )
 >;
+
+export type RootAccount = Extract<Account, { type: AccountTypeEnum["ROOT"] }>;
+
+export type DelegatedAccount = Extract<Account, { type: AccountTypeEnum["DELIGATION"] }>;
+
+export type CommonAccountType = Exclude<AccountType, AccountTypeEnum["ROOT"] | AccountTypeEnum["DELIGATION"]>;
+
+export type CommonAccount = Extract<Account, { type: CommonAccountType }>;

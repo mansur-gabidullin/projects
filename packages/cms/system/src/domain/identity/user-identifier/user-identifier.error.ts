@@ -7,9 +7,9 @@ export const UserIdentifierErrorTypeEnum = Object.freeze({
 export type UserIdentifierErrorTypeEnum = typeof UserIdentifierErrorTypeEnum;
 export type UserIdentifierErrorType = UserIdentifierErrorTypeEnum[keyof UserIdentifierErrorTypeEnum];
 
-export type CannotChangeIdentifierValueError = {
+export type CannotChangeIdentifierValueError = Readonly<{
     type: UserIdentifierErrorTypeEnum["CANNOT_CHANGE_VALUE"];
     userIdentifierId: UserIdentifierId;
-};
+}>;
 
 export type UserIdentifierError = CannotChangeIdentifierValueError;

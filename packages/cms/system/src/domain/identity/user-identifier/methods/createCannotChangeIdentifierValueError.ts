@@ -4,8 +4,8 @@ import { type CannotChangeIdentifierValueError, UserIdentifierErrorTypeEnum } fr
 export function createCannotChangeIdentifierValueError(
     userIdentifierId: UserIdentifierId,
 ): CannotChangeIdentifierValueError {
-    return {
+    return Object.freeze({
         type: UserIdentifierErrorTypeEnum.CANNOT_CHANGE_VALUE,
         userIdentifierId,
-    };
+    });
 }

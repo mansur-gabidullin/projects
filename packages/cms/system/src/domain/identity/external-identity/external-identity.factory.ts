@@ -5,14 +5,14 @@ import type { IdGenerator } from "@domain/shared-kernel";
 import type { ExternalIdentityId } from "./external-identity";
 import { createExternalIdentity } from "./methods/createExternalIdentity";
 
-type ExternalIdentityFactory = {
+type ExternalIdentityFactory = Readonly<{
     create: DropFirstArg<typeof createExternalIdentity>;
-};
+}>;
 
 export function ExternalIdentityFactory(idGenerator: IdGenerator): ExternalIdentityFactory {
     const createExternalIdentityId = idGenerator.createId<ExternalIdentityId>;
 
-    return {
+    return Object.freeze({
         create: params => createExternalIdentity(createExternalIdentityId(), params),
-    };
+    });
 }

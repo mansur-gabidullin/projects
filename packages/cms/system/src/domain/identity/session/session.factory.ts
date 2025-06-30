@@ -5,14 +5,14 @@ import type { IdGenerator } from "@domain/shared-kernel";
 import { createSession } from "./methods/createSession";
 import type { SessionId } from "./session";
 
-type SessionFactory = {
+type SessionFactory = Readonly<{
     create: DropFirstArg<typeof createSession>;
-};
+}>;
 
 export function SessionFactory(idGenerator: IdGenerator): SessionFactory {
     const createSessionId = idGenerator.createId<SessionId>;
 
-    return {
+    return Object.freeze({
         create: params => createSession(createSessionId(), params),
-    };
+    });
 }

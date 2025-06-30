@@ -17,6 +17,7 @@ export function createSession(id: SessionId, params: CreateSessionParams): [Sess
             id,
             userId: params.userId,
             accountId: params.accountId,
+            userIdentifierId: params.userIdentifierId,
             device: params.device,
             ip: params.ip,
             userAgent: params.userAgent,

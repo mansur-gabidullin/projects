@@ -9,14 +9,14 @@ export type AccountErrorTypeEnum = typeof AccountErrorTypeEnum;
 
 export type AccountErrorType = AccountErrorTypeEnum[keyof AccountErrorTypeEnum];
 
-export type CannotChangeStatusOfRootError = {
+export type CannotChangeStatusOfRootError = Readonly<{
     type: AccountErrorTypeEnum["CANNOT_CHANGE_STATUS_OF_ROOT"];
-};
+}>;
 
-export type InvalidAccountStatusError = {
+export type InvalidAccountStatusError = Readonly<{
     type: AccountErrorTypeEnum["INVALID_STATUS"];
     accountId: AccountId;
     received: unknown;
-};
+}>;
 
 export type AccountError = InvalidAccountStatusError;

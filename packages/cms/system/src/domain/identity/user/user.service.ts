@@ -6,16 +6,16 @@ import { makeGuestABasicUser } from "./methods/makeGuestABasicUser";
 import type { User } from "./user";
 import type { Profile } from "../profile/profile";
 
-type UserService = {
+type UserService = Readonly<{
     checkIsGuest: DropFirstArg<typeof checkIsUserGuest>;
     makeAsBasic: DropFirstArg<typeof makeGuestABasicUser>;
     getReference: DropFirstArg<typeof createUserReference>;
-};
+}>;
 
 export function UserService(user: User, profile?: Profile): UserService {
-    return {
+    return Object.freeze({
         checkIsGuest: () => checkIsUserGuest(user),
         makeAsBasic: () => makeGuestABasicUser(user),
         getReference: () => createUserReference({ user, profile }),
-    };
+    });
 }
