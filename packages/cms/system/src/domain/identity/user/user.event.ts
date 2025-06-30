@@ -24,24 +24,4 @@ export type UserTypeChangedToBasicEvent = Readonly<{
     };
 }>;
 
-export function createUserCreatedEvent(userId: UserId): UserCreatedEvent {
-    return Object.freeze({
-        type: UserEventTypeEnum.CREATED,
-        payload: {
-            userId,
-            occurredAt: new Date(),
-        },
-    });
-}
-
-export function createUserTypeChangedToBasicEvent(userId: UserId): UserTypeChangedToBasicEvent {
-    return Object.freeze({
-        type: UserEventTypeEnum.CHANGED_TO_BASIC,
-        payload: {
-            userId,
-            occurredAt: new Date(),
-        },
-    });
-}
-
 export type UserEvent = UserCreatedEvent | UserTypeChangedToBasicEvent;

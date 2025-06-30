@@ -1,7 +1,8 @@
 import type { MakePartial } from "@mansur-gabidullin/lib-types";
 
-import type { Session, SessionId } from "./session";
-import { createSessionCreatedEvent, type SessionCreatedEvent } from "./session-event";
+import type { Session, SessionId } from "../session";
+import type { SessionCreatedEvent } from "../session.event";
+import { createSessionCreatedEvent } from "./createSessionCreatedEvent";
 
 type CreateSessionParams = MakePartial<
     Omit<Session, "id" | "createdAt" | "updatedAt" | "lastSeenAt">,

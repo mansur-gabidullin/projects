@@ -25,28 +25,4 @@ export type UserIdentifierValueChangedEvent = Readonly<{
     };
 }>;
 
-export function createUserIdentifierCreatedEvent(userIdentityId: UserIdentifierId): UserIdentifierCreatedEvent {
-    return Object.freeze({
-        type: UserIdentifierEventTypeEnum.CREATED,
-        payload: {
-            userIdentityId,
-            occurredAt: new Date(),
-        },
-    });
-}
-
-export function createUserIdentifierValueChangedEvent(
-    userIdentityId: UserIdentifierId,
-    previousValue: UserIdentifierWithValue["value"],
-): UserIdentifierValueChangedEvent {
-    return Object.freeze({
-        type: UserIdentifierEventTypeEnum.VALUE_CHANGED,
-        payload: {
-            userIdentityId,
-            previousValue,
-            occurredAt: new Date(),
-        },
-    });
-}
-
 export type UserIdentifierEvent = UserIdentifierCreatedEvent | UserIdentifierValueChangedEvent;

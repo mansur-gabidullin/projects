@@ -13,10 +13,3 @@ export type UserIsNotGuestError = {
 };
 
 export type UserError = UserIsNotGuestError;
-
-export function createUserIsNotGuestError(userId: UserId): UserIsNotGuestError {
-    return {
-        type: UserErrorTypeEnum.USER_IS_NOT_GUEST,
-        userId,
-    };
-}

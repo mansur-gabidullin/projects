@@ -7,6 +7,3 @@ export const AccountStatusEnum = Object.freeze({
 
 export type AccountStatusEnum = typeof AccountStatusEnum;
 export type AccountStatus = AccountStatusEnum[keyof AccountStatusEnum];
-
-export const isAccountStatusValid = (status: string): status is AccountStatus =>
-    Object.values<string>(AccountStatusEnum).includes(status);

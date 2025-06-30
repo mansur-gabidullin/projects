@@ -13,12 +13,3 @@ export type CannotChangeIdentifierValueError = {
 };
 
 export type UserIdentifierError = CannotChangeIdentifierValueError;
-
-export function createCannotChangeIdentifierValueError(
-    userIdentifierId: UserIdentifierId,
-): CannotChangeIdentifierValueError {
-    return {
-        type: UserIdentifierErrorTypeEnum.CANNOT_CHANGE_VALUE,
-        userIdentifierId,
-    };
-}

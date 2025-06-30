@@ -20,16 +20,3 @@ export type InvalidAccountStatusError = {
 };
 
 export type AccountError = InvalidAccountStatusError;
-
-export const createCannotChangeStatusOfRootError = (): CannotChangeStatusOfRootError => ({
-    type: AccountErrorTypeEnum.CANNOT_CHANGE_STATUS_OF_ROOT,
-});
-
-export const createInvalidAccountStatusError = (
-    accountId: AccountId,
-    received: unknown,
-): InvalidAccountStatusError => ({
-    type: AccountErrorTypeEnum.INVALID_STATUS,
-    accountId: accountId,
-    received,
-});

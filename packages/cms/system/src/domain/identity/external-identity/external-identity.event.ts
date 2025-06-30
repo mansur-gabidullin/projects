@@ -15,16 +15,4 @@ export type ExternalIdentityCreatedEvent = Readonly<{
     };
 }>;
 
-export function createExternalIdentityCreatedEvent(
-    externalIdentityId: ExternalIdentityId,
-): ExternalIdentityCreatedEvent {
-    return Object.freeze({
-        type: ExternalIdentityEventTypeEnum.CREATED,
-        payload: {
-            externalIdentityId,
-            occurredAt: new Date(),
-        },
-    });
-}
-
 export type ExternalIdentityEvent = ExternalIdentityCreatedEvent;

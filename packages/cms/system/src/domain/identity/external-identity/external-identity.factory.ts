@@ -2,30 +2,8 @@ import type { DropFirstArg } from "@mansur-gabidullin/lib-types";
 
 import type { IdGenerator } from "@domain/shared-kernel";
 
-import type { ExternalIdentity, ExternalIdentityId } from "./external-identity";
-import { createExternalIdentityCreatedEvent, type ExternalIdentityCreatedEvent } from "./external-identity.events";
-
-type CreateExternalIdentityParams = Omit<ExternalIdentity, "id" | "createdAt" | "updatedAt">;
-
-function createExternalIdentity(
-    id: ExternalIdentityId,
-    params: CreateExternalIdentityParams,
-): [ExternalIdentity, ExternalIdentityCreatedEvent] {
-    const createdAt = new Date();
-
-    return [
-        Object.freeze({
-            id,
-            userId: params.userId,
-            externalId: params.externalId,
-            provider: params.provider,
-            metadata: params.metadata,
-            createdAt,
-            updatedAt: createdAt,
-        }),
-        createExternalIdentityCreatedEvent(id),
-    ];
-}
+import type { ExternalIdentityId } from "./external-identity";
+import { createExternalIdentity } from "./methods/createExternalIdentity";
 
 type ExternalIdentityFactory = {
     create: DropFirstArg<typeof createExternalIdentity>;

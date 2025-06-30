@@ -15,14 +15,4 @@ export type ProfileCreatedEvent = Readonly<{
     };
 }>;
 
-export function createProfileCreatedEvent(profileId: ProfileId): ProfileCreatedEvent {
-    return Object.freeze({
-        type: ProfileEventTypeEnum.CREATED,
-        payload: {
-            profileId,
-            occurredAt: new Date(),
-        },
-    });
-}
-
 export type ProfileEvent = ProfileCreatedEvent;

@@ -1,16 +1,8 @@
 import type { BrandedString } from "@mansur-gabidullin/lib-types";
-import { Result } from "@mansur-gabidullin/lib-utils";
 
 import type { UserId } from "@domain/shared-kernel";
 
-import { type AccountStatus, isAccountStatusValid } from "./account-status";
-import {
-    type CannotChangeStatusOfRootError,
-    createCannotChangeStatusOfRootError,
-    createInvalidAccountStatusError,
-    type InvalidAccountStatusError,
-} from "./account.errors";
-import { type AccountStatusChangedEvent, createAccountStatusChangedEvent } from "./account.events";
+import { type AccountStatus } from "./account-status";
 import { UserTypeEnum } from "../user/user";
 import { UserIdentifierTypeEnum } from "../user-identifier/user-identifier";
 
@@ -54,25 +46,3 @@ export type Account = Readonly<
           ))
     )
 >;
-
-export const changeAccountStatus = (
-    account: Account,
-    newStatus: AccountStatus,
-): Result<[Account, AccountStatusChangedEvent], CannotChangeStatusOfRootError | InvalidAccountStatusError> => {
-    if (account.type === AccountTypeEnum.ROOT) {
-        return Result.error(createCannotChangeStatusOfRootError());
-    }
-
-    if (!isAccountStatusValid(newStatus)) {
-        return Result.error(createInvalidAccountStatusError(account.id, newStatus));
-    }
-
-    return Result.ok([
-        Object.freeze({
-            ...account,
-            updatedAt: new Date(),
-            status: newStatus,
-        }),
-        createAccountStatusChangedEvent(account, account.status),
-    ]);
-};

@@ -1,4 +1,4 @@
-import type { Account, AccountId, AccountType, AccountTypeEnum } from "./account";
+import type { AccountId } from "./account";
 import type { AccountStatus } from "./account-status";
 
 export const AccountEventTypeEnum = Object.freeze({
@@ -51,24 +51,3 @@ export type AccountEvent =
     | AccountSuspendedEvent
     | AccountDeletedEvent
     | AccountStatusChangedEvent;
-
-export const createAccountCreatedEvent = (accountId: AccountId): AccountCreatedEvent => ({
-    type: AccountEventTypeEnum.CREATED,
-    payload: {
-        accountId,
-        occurredAt: new Date(),
-    },
-});
-
-export const createAccountStatusChangedEvent = (
-    account: Extract<Account, { type: Exclude<AccountType, AccountTypeEnum["ROOT"]> }>,
-    previousStatus: AccountStatus,
-): AccountStatusChangedEvent => ({
-    type: AccountEventTypeEnum.STATUS_CHANGED,
-    payload: {
-        accountId: account.id,
-        status: account.status,
-        previousStatus: previousStatus,
-        occurredAt: new Date(),
-    },
-});

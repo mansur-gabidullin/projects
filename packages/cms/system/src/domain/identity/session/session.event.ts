@@ -15,14 +15,4 @@ export type SessionCreatedEvent = Readonly<{
     };
 }>;
 
-export function createSessionCreatedEvent(sessionId: SessionId): SessionCreatedEvent {
-    return Object.freeze({
-        type: SessionEventTypeEnum.CREATED,
-        payload: {
-            sessionId,
-            occurredAt: new Date(),
-        },
-    });
-}
-
 export type SessionEvent = SessionCreatedEvent;
