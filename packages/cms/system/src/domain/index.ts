@@ -1,4 +1,5 @@
-export type { IdGenerator, UserId, UserReference } from "./shared-kernel";
+export type { IdGenerator, UserId, ProfileReference } from "./shared-kernel";
+
 export {
     // user
     UserFactory,
@@ -10,21 +11,13 @@ export {
     UserIdentifierService,
     type UserIdentifierRepository,
 
-    // profile
-    ProfileFactory,
-    type ProfileRepository,
-
     // external identity
     ExternalIdentityFactory,
     type ExternalIdentityRepository,
-
-    // account
-    AccountFactory,
-    AccountService,
-    type AccountRepository,
-
-    // session
-    SessionFactory,
-    SessionService,
-    type SessionRepository,
 } from "./identity";
+
+export { ProfileFactory, type ProfileRepository } from "./profile";
+
+export { AccountFactory, AccountService, type AccountRepository } from "./account";
+
+export { SessionFactory, SessionService, type SessionRepository } from "./session";

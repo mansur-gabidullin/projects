@@ -1,7 +1,6 @@
 import { Result } from "@mansur-gabidullin/lib-utils";
 
-import type { UserId } from "@domain/shared-kernel";
-
+import type { UserId } from "../../shared-kernel";
 import type { Profile } from "../profile";
 
 export type ProfileRepository = Readonly<{

@@ -1,6 +1,6 @@
 import type { BrandedString } from "@mansur-gabidullin/lib-types";
 
-import type { UserId } from "@domain/shared-kernel";
+import type { UserId } from "../shared-kernel";
 
 declare const _idBrand: unique symbol;
 export type ProfileId = BrandedString<typeof _idBrand>;

@@ -1,8 +1,7 @@
 import type { DropFirstArg } from "@mansur-gabidullin/lib-types";
 
-import type { IdGenerator } from "@domain/shared-kernel";
-
 import type { AccountId } from "./account";
+import type { IdGenerator } from "../shared-kernel";
 import { createAccount } from "./methods/createAccount";
 
 type AccountFactory = Readonly<{

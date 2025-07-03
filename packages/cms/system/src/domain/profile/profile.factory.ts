@@ -1,7 +1,6 @@
 import type { DropFirstArg } from "@mansur-gabidullin/lib-types";
 
-import type { IdGenerator } from "@domain/shared-kernel";
-
+import type { IdGenerator } from "../shared-kernel";
 import { createProfile } from "./methods/createProfile";
 import type { ProfileId } from "./profile";
 

@@ -1,10 +1,9 @@
 import type { BrandedString } from "@mansur-gabidullin/lib-types";
 
-import type { UserId } from "@domain/shared-kernel";
-
 import { type AccountStatus } from "./account-status";
-import { UserTypeEnum } from "../user/user";
-import { UserIdentifierTypeEnum } from "../user-identifier/user-identifier";
+import { UserTypeEnum } from "../identity/user/user";
+import { UserIdentifierTypeEnum } from "../identity/user-identifier/user-identifier";
+import type { UserId } from "../shared-kernel";
 
 export const AccountTypeEnum = Object.freeze({
     ROOT: UserIdentifierTypeEnum.ROOT, // если авторизовался как root, то получи аккаунт root
